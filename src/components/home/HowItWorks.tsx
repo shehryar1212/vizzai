@@ -1,7 +1,7 @@
 
 import { 
   Lightbulb,
-  Robot,
+  Bot,
   BarChart3,
   ArrowRight
 } from "lucide-react";
@@ -16,7 +16,7 @@ const HowItWorks = () => {
       color: "bg-sales-primary",
     },
     {
-      icon: <Robot size={24} className="text-white" />,
+      icon: <Bot size={24} className="text-white" />,
       title: "AI Automation",
       description:
         "Our AI system begins sourcing leads, generating personalized emails, and managing follow-ups without your involvement.",
