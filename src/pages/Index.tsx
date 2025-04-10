@@ -1,6 +1,7 @@
 
 import Hero from "@/components/home/Hero";
 import Features from "@/components/home/Features";
+import Navbar from "@/components/layout/Navbar";
 import OnboardingForm from "@/components/onboarding/OnboardingForm";
 import { Button } from "@/components/ui/button";
 import { Calendar, Clock, Users, Check } from "lucide-react";
@@ -8,6 +9,7 @@ import { Calendar, Clock, Users, Check } from "lucide-react";
 const Index = () => {
   return (
     <div className="min-h-screen flex flex-col">
+      <Navbar />
       <Hero />
       <Features />
       
@@ -71,8 +73,7 @@ const Index = () => {
                 </div>
               </div>
               
-              <Button className="w-full mt-4 py-6 text-lg bg-sales-primary hover:bg-sales-secondary flex justify-center items-center gap-2"
-                onClick={() => document.getElementById('get-started')?.scrollIntoView({ behavior: 'smooth' })}>
+              <Button className="w-full mt-4 py-6 text-lg bg-sales-primary hover:bg-sales-secondary flex justify-center items-center gap-2">
                 <Calendar className="h-5 w-5" /> 
                 Book Your Free Meeting Now
               </Button>
