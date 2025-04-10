@@ -13,6 +13,7 @@ import {
   CardTitle 
 } from "@/components/ui/card";
 import { toast } from "@/components/ui/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const OnboardingForm = () => {
   const [formData, setFormData] = useState({
@@ -33,7 +34,7 @@ const OnboardingForm = () => {
   };
 
   const handleNextStep = () => {
-    if (step === 1 && (!formData.companyName || !formData.websiteUrl)) {
+    if (step === 1 && (!formData.companyName || !formData.websiteUrl || !formData.email)) {
       toast({
         title: "Required fields missing",
         description: "Please fill in all required fields to continue.",
@@ -48,19 +49,36 @@ const OnboardingForm = () => {
     setStep(step - 1);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      // Send form data to edge function for email delivery
+      const { data, error } = await supabase.functions.invoke('send-onboarding-email', {
+        body: formData,
+      });
+      
+      if (error) {
+        throw new Error(error.message);
+      }
+      
       toast({
         title: "Onboarding successful!",
         description: "We've received your information and will be in touch shortly to configure your AI sales campaigns.",
       });
+      
       setStep(3);
-    }, 1500);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast({
+        title: "Submission error",
+        description: "There was a problem submitting your information. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
