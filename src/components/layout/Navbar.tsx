@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Calendar } from "lucide-react";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,10 +10,7 @@ const Navbar = () => {
   const navItems = [
     { name: "Home", path: "/" },
     { name: "Features", path: "/#features" },
-    { name: "How It Works", path: "/#how-it-works" },
-    { name: "Dashboard", path: "/dashboard" },
-    { name: "Campaigns", path: "/campaigns" },
-    { name: "Reports", path: "/reports" },
+    { name: "Book a Meeting", path: "/#get-started" },
   ];
 
   return (
@@ -24,7 +21,7 @@ const Navbar = () => {
             <div className="flex-shrink-0 flex items-center">
               <Link to="/" className="flex items-center">
                 <span className="text-xl font-bold text-sales-primary">
-                  AI<span className="text-sales-accent">Sales</span>Whisperer
+                  Vizz<span className="text-sales-accent">ai</span>
                 </span>
               </Link>
             </div>
@@ -41,8 +38,13 @@ const Navbar = () => {
             </div>
           </div>
           <div className="hidden sm:ml-6 sm:flex sm:items-center">
-            <Button variant="default" className="bg-sales-primary hover:bg-sales-secondary">
-              Get Started
+            <Button 
+              variant="default" 
+              className="bg-sales-primary hover:bg-sales-secondary flex items-center gap-2"
+              onClick={() => window.location.href = '/#get-started'}
+            >
+              <Calendar className="h-4 w-4" />
+              Book a Free Meeting
             </Button>
           </div>
           <div className="-mr-2 flex items-center sm:hidden">
@@ -76,8 +78,15 @@ const Navbar = () => {
               </Link>
             ))}
             <div className="mt-4 px-3">
-              <Button className="w-full bg-sales-primary hover:bg-sales-secondary">
-                Get Started
+              <Button 
+                className="w-full bg-sales-primary hover:bg-sales-secondary flex justify-center items-center gap-2"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  window.location.href = '/#get-started';
+                }}
+              >
+                <Calendar className="h-4 w-4" />
+                Book a Free Meeting
               </Button>
             </div>
           </div>
