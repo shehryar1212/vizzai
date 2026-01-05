@@ -1,34 +1,23 @@
 # Vizzai
 
-Short description about what this project is and what problem it solves.
+Demo AI platform to handle entire sales pipeline: from sourcing leads to generating personalized emails and automatic follow ups, all without requiring your constant attention.
 
-## Table of Contents
+## Demo
 
-- Overview
-- Features
-- Tech Stack
-- Installation
-- Usage
-- Project Structure
-- Contributing
-- License
-
-## Overview
-
-`Vizzai` is a [type of project: web app, API service, visualization tool, etc.] that [brief summary of purpose and functionality]. Describe what it does and why it exists.
+Live demo: https://vizzai-zeta.vercel.app/ :contentReference[oaicite:1]{index=1}
 
 ## Features
-
-- List key features of the project
-- What it supports or provides
-- Any notable capabilities
+  - Data visualization and charts
+  - Interactive dashboards
+  - Responsive UI
+  - Configurable views
 
 ## Tech Stack
 
-This project is built using:
+Vizzai is built using:
 
-- [Programming language/framework (e.g., Python, JavaScript, etc.)]
-- [Frameworks (e.g., React, FastAPI, Django)]
-- [Other libraries/tools]
-
+- TypeScript
+- Vite
+- CSS / Tailwind 
+- HTML
 
